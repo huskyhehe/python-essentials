@@ -32,7 +32,7 @@ print("New dict: ", dict3, id(dict3))
 
 # deep copy
 # only method: copy.deepcopy(x)
-old_list = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
+old_list = [1, 3, 5]
 new_list = copy.deepcopy(old_list)
 
 print("Old list: ", old_list, id(old_list))
@@ -40,9 +40,12 @@ print("New list: ", new_list, id(new_list))
 # ids are different
 
 for x, y in zip(old_list, new_list):
-    for a, b in zip(x, y):
-        print(id(a), id(b))
-# but a's id == b's id
+    print(id(x), id(y))
+# x, y's id are the same
+
+old_list[0] += 10
+print(old_list[0], new_list[0])
+# change of old_list's element will not affect new_list
 
 old_dict = {3: 100, 4: 200}
 new_dict = copy.deepcopy(old_dict)
